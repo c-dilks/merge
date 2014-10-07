@@ -1,0 +1,17 @@
+#!/bin/bash
+# checks run12 and run13 environment vars used to produce phiset
+# and copies over a file that you may source
+# run12 and run13 vars ought to match; this script complains if they don't
+
+> env_bins.sh
+diff 1{2,3}/env_bins.sh > diff_out
+cat diff_out
+
+if [ -s diff_out ]; then
+  echo ""
+  echo "ERROR: run 12 environment different from that of run 13!"
+else
+  cp 12/env_bins.sh ./
+  echo "env_bins.sh copied to pwd; source it!"
+fi
+rm diff_out
