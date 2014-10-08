@@ -24,11 +24,11 @@ void Bin_Splitter()
 
   Double_t pt_low=2.0;   // lowest acceptable pT for runs 12 & 13; hard kin. cutoff overrides this
   Double_t pt_high=10.0; // pi0 reconstruction is unreliable for pT>15
-  Int_t pt_bins=1;
+  Int_t pt_bins=0;
 
   Double_t en_low=30.0; // E>30 cutoff point for pi0s; should allow sph & thr to go lower
   Double_t en_high=100; // can go up to 255, but cluster merging for pi0s is problem for E>100
-  Int_t en_bins=0;
+  Int_t en_bins=1;
 
   char efile[64];
   strcpy(efile,"env_bins.sh");
@@ -91,7 +91,7 @@ void Bin_Splitter()
   else
   {
     // for en_bins=1 and eta_bins=1 -- 6 bin scheme
-    /*
+    ///*
     pt_bins=6;
     printf("export PT_BINS=%d\n",pt_bins);
     printf("export PT_DIV_0=%f\n",pt_low);
@@ -101,9 +101,9 @@ void Bin_Splitter()
     printf("export PT_DIV_4=%f\n",6.5);
     printf("export PT_DIV_5=%f\n",8);
     printf("export PT_DIV_6=%f\n",pt_high);
-    */
+    //*/
     // for en_bins=1 and eta_bins=1 -- 8 bin scheme
-    ///*
+    /*
     pt_bins=8;
     printf("export PT_BINS=%d\n",pt_bins);
     printf("export PT_DIV_0=%f\n",pt_low);
@@ -115,7 +115,7 @@ void Bin_Splitter()
     printf("export PT_DIV_6=%f\n",6.5);
     printf("export PT_DIV_7=%f\n",8);
     printf("export PT_DIV_8=%f\n",pt_high);
-    //*/
+    */
   };
 
     
