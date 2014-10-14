@@ -6,4 +6,8 @@ results_35mr/*
 printout*
 spin*.root
 three*.png
+prelim.root
+*.root
+*.png
 output/*
+output_for_spin/*
