@@ -11,3 +11,4 @@ prelim.root
 *.png
 output/*
 output_for_spin/*
+data_table

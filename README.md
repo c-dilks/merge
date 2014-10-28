@@ -78,13 +78,13 @@ Preliminary Plots
     have the `spin.root` files for `pt` and `en` for `35mr` and `100mr`)
 
 2. in the `12` or `13` directory, there are two scripts used to make preliminary plots:
-  - `DrawPreliminaryPlots.C` just draws the `A_LL` vs. `kinematic variable (pt,en)` for
-    `output/spin_pi0.root`; it's more or less deprecated and not in use
   - `DrawPreliminaryPlots2.C` draws `A_LL` vs. `kinematic variable (pt,en)` for
     the 35mr and 100mr cases in one plot, where the red markers are for 35mr and the
     blue markers (offset to the right slightly) are for the 100mr; you need to look at
     the `TFile` definitions to see where the files need to be located; this script
     will output a file needed for the next step, called `prelim.root`
+  - `DrawPreliminaryPlots.C` just draws the `A_LL` vs. `kinematic variable (pt,en)` for
+    `output/spin_pi0.root`; it's more or less deprecated and not in use
 
 3. once you have both `12/prelim.root` and `13/prelim.root` for either `en` or `pt`, run
    `DrawFullPreliminary.C` to create the full preliminary plot with the systematics

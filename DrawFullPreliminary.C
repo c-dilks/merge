@@ -193,5 +193,37 @@ void DrawFullPreliminary(const char * kin="pt")
 
   TFile * outfile = new TFile("prelim.root","RECREATE");
   prelim_plot->Write("prelim_plot");
+
+
+  // print data table
+  char data_table[64];
+  strcpy(data_table,"data_table");
+  gSystem->RedirectOutput(data_table,"w");
+  printf("cone_radius  %s  %s_unc  A_LL  A_LL_stat_unc  A_LL_sys_unc\n",kin,kin);
+  gSystem->RedirectOutput(0);
+  Double_t sys;
+  for(Int_t n=0; n<MAX_BINS; n++)
+  {
+    grS->GetPoint(n,x,y);
+    x_e = grS->GetErrorX(n);
+    y_e = grS->GetErrorY(n);
+    sys = grSsys->GetErrorY(n);
+    gSystem->RedirectOutput(data_table,"a");
+    printf("35 %f %f %f %f %f\n",x,x_e,y,y_e,sys);
+    gSystem->RedirectOutput(0);
+  };
+  for(Int_t n=0; n<MAX_BINS; n++)
+  {
+    grL->GetPoint(n,x,y);
+    x_e = grL->GetErrorX(n);
+    y_e = grL->GetErrorY(n);
+    sys = grLsys->GetErrorY(n);
+    gSystem->RedirectOutput(data_table,"a");
+    printf("100 %f %f %f %f %f\n",x,x_e,y,y_e,sys);
+    gSystem->RedirectOutput(0);
+  };
+
+
+
 };
 
